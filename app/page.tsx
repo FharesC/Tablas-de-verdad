@@ -61,7 +61,7 @@ export default function TruthTableGenerator() {
     if (vars.length === 0) return [{}]
     const count = Math.pow(2, vars.length)
     const combinations: Record<string, boolean>[] = []
-    for (let i = 0; i < count; i++) {
+    for (let i = count - 1; i >= 0; i--) {
       const combo: Record<string, boolean> = {}
       vars.forEach((v, index) => {
         combo[v] = Boolean((i >> (vars.length - 1 - index)) & 1)
@@ -337,7 +337,7 @@ export default function TruthTableGenerator() {
             <CardTitle className="text-lg">Fórmula</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="min-h-[60px] rounded-lg border bg-muted/50 p-4 font-mono text-xl flex items-center">
+            <div className="min-h-15 rounded-lg border bg-muted/50 p-4 font-mono text-xl flex items-center">
               {formula || (
                 <span className="text-muted-foreground">
                   Usa los botones para construir tu fórmula...
