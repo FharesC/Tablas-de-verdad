@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trash2, Undo2 } from "lucide-react";
 import { Token } from "../truthTableLogic";
 
-interface FormulaCardProps {
+interface TarjetaFormulaProps {
   formula: string;
   tokens: Token[];
   error: string;
@@ -11,7 +11,13 @@ interface FormulaCardProps {
   clearAll: () => void;
 }
 
-export function FormulaCard({ formula, tokens, error, removeLastToken, clearAll }: FormulaCardProps) {
+export function TarjetaFormula({
+  formula,
+  tokens,
+  error,
+  removeLastToken,
+  clearAll,
+}: TarjetaFormulaProps) {
   return (
     <Card>
       <CardHeader className="pb-3">

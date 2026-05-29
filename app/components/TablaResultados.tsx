@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Token } from "../truthTableLogic";
 
-interface ResultTableProps {
+interface TablaResultadosProps {
   tokens: Token[];
   usedVariables: string[];
   formula: string;
@@ -11,14 +11,26 @@ interface ResultTableProps {
   tableAnalysis: { type: string; message: string } | null;
 }
 
-export function ResultTable({
+const BADGE_COLORS: Record<string, string> = {
+  tautology: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400",
+  contradiction: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400",
+  contingent: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400",
+};
+
+const RESULT_COLORS: Record<string, string> = {
+  true: "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20",
+  false: "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20",
+  null: "text-yellow-600 dark:text-yellow-400",
+};
+
+export function TablaResultados({
   tokens,
   usedVariables,
   formula,
   truthTable,
   isValidFormula,
   tableAnalysis,
-}: ResultTableProps) {
+}: TablaResultadosProps) {
   if (tokens.length === 0 || usedVariables.length === 0) return null;
 
   return (
@@ -29,13 +41,8 @@ export function ResultTable({
           {tableAnalysis && (
             <span
               className={`text-sm font-normal px-3 py-1 rounded-full ${
-                tableAnalysis.type === "tautology"
-                  ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
-                  : tableAnalysis.type === "contradiction"
-                    ? "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
-                    : tableAnalysis.type === "contingent"
-                      ? "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400"
-                      : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
+                BADGE_COLORS[tableAnalysis.type] ||
+                "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
               }`}
             >
               {tableAnalysis.message}
@@ -70,29 +77,27 @@ export function ResultTable({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {truthTable?.map((row, index) => (
-                  <TableRow key={index}>
-                    {usedVariables.map((v) => (
+                {truthTable?.map((row, index) => {
+                  const key =
+                    row.result === null ? "null" : row.result ? "true" : "false";
+                  return (
+                    <TableRow key={index}>
+                      {usedVariables.map((v) => (
+                        <TableCell
+                          key={v}
+                          className="text-center font-mono text-base"
+                        >
+                          {row.values[v] ? "V" : "F"}
+                        </TableCell>
+                      ))}
                       <TableCell
-                        key={v}
-                        className="text-center font-mono text-base"
+                        className={`text-center font-mono text-base font-bold border-l-2 ${RESULT_COLORS[key]}`}
                       >
-                        {row.values[v] ? "V" : "F"}
+                        {row.result === null ? "?" : row.result ? "V" : "F"}
                       </TableCell>
-                    ))}
-                    <TableCell
-                      className={`text-center font-mono text-base font-bold border-l-2 ${
-                        row.result === true
-                          ? "text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20"
-                          : row.result === false
-                            ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20"
-                            : "text-yellow-600 dark:text-yellow-400"
-                      }`}
-                    >
-                      {row.result === null ? "?" : row.result ? "V" : "F"}
-                    </TableCell>
-                  </TableRow>
-                ))}
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </div>

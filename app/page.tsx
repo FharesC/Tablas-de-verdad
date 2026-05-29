@@ -2,10 +2,10 @@
 
 import { Calculator } from "lucide-react";
 import { useTruthTable } from "./useTruthTable";
-import { FormulaCard } from "./components/FormulaCard";
-import { ControlsCard } from "./components/ControlsCard";
-import { ResultTable } from "./components/ResultTable";
-import { ExamplesCard } from "./components/ExamplesCard";
+import { TarjetaFormula } from "./components/TarjetaFormula";
+import { TarjetaControles } from "./components/TarjetaControles";
+import { TablaResultados } from "./components/TablaResultados";
+import { TarjetaEjemplos } from "./components/TarjetaEjemplos";
 
 export default function TruthTableGenerator() {
   const tableState = useTruthTable();
@@ -23,7 +23,7 @@ export default function TruthTableGenerator() {
           </p>
         </div>
 
-        <FormulaCard 
+        <TarjetaFormula 
           formula={tableState.formula}
           tokens={tableState.tokens}
           error={tableState.error}
@@ -31,9 +31,9 @@ export default function TruthTableGenerator() {
           clearAll={tableState.clearAll}
         />
 
-        <ControlsCard addToken={tableState.addToken} />
+        <TarjetaControles addToken={tableState.addToken} />
 
-        <ResultTable 
+        <TablaResultados 
           tokens={tableState.tokens}
           usedVariables={tableState.usedVariables}
           formula={tableState.formula}
@@ -42,7 +42,7 @@ export default function TruthTableGenerator() {
           tableAnalysis={tableState.tableAnalysis}
         />
 
-        <ExamplesCard 
+        <TarjetaEjemplos 
           clearAll={tableState.clearAll}
           setTokens={tableState.setTokens}
         />

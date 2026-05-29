@@ -2,11 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Token, variables, operators, parentheses } from "../truthTableLogic";
 
-interface ControlsCardProps {
+interface TarjetaControlesProps {
   addToken: (type: Token["type"], value: string, display: string) => void;
 }
 
-export function ControlsCard({ addToken }: ControlsCardProps) {
+export function TarjetaControles({ addToken }: TarjetaControlesProps) {
   return (
     <div className="grid gap-4 md:grid-cols-3">
       <Card>
