@@ -1,5 +1,5 @@
 # 1. OBJETIVO
-Realizar un proyecto en lenguaje Python para la automatización de Tablas de Verdad, con interfaz de usuario tipo línea de comandos (CMD). El proyecto debe ser capaz de:
+Realizar un proyecto para la automatización de Tablas de Verdad, con interfaz de usuario tipo línea de comandos (CMD). El proyecto debe ser capaz de:
 
 - Detectar el número de variables de una fórmula lógica ingresada.
 - Generar automáticamente todas las combinaciones posibles de valores de verdad (Verdadero/Falso).
@@ -7,11 +7,6 @@ Realizar un proyecto en lenguaje Python para la automatización de Tablas de Ver
 - Mostrar los resultados en un formato tabular ordenado.
 
 # 2. REQUISITOS TÉCNICOS
-
-### **Lenguaje y Entorno:**
-- **Lenguaje:** Python 3.
-- **Entorno:** Ejecución en consola/terminal (CMD). No requiere interfaces gráficas complejas (Tkinter/PyQt).
-
 ### **Entrada de Datos:**
 El sistema debe solicitar al usuario el ingreso de una fórmula lógica utilizando el siguiente alfabeto:
 - **Variables:** Letras mayúsculas (A, B, C, etc.).
