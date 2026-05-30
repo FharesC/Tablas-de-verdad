@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
-import { Token, evaluateFormula, generateCombinations } from "./truthTableLogic";
+import { Token, evaluateFormula, generateCombinations } from "./logicaTablaVerdad";
 
-export function useTruthTable() {
+export function useTablaVerdad() {
   const [tokens, setTokens] = useState<Token[]>([]);
   const [error, setError] = useState<string>("");
 

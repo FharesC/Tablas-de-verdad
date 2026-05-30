@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trash2, Undo2 } from "lucide-react";
-import { Token } from "../truthTableLogic";
+import { Token } from "../logicaTablaVerdad";
 
 interface TarjetaFormulaProps {
   formula: string;

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Token, variables, operators, parentheses } from "../truthTableLogic";
+import { Token, variables, operators, parentheses } from "../logicaTablaVerdad";
 
 interface TarjetaControlesProps {
   addToken: (type: Token["type"], value: string, display: string) => void;
@@ -9,7 +9,7 @@ interface TarjetaControlesProps {
 export function TarjetaControles({ addToken }: TarjetaControlesProps) {
   return (
     <div className="grid gap-4 md:grid-cols-3">
-       <Card> {/*tarjeta para variables */}
+       <Card>
         <CardHeader className="pb-3">
           <CardTitle className="text-lg">Variables</CardTitle>
         </CardHeader>
@@ -30,7 +30,7 @@ export function TarjetaControles({ addToken }: TarjetaControlesProps) {
         </CardContent>
       </Card>
 
-      <Card> {/*tarjeta para operadores */}
+      <Card>
         <CardHeader className="pb-3">
           <CardTitle className="text-lg">Operadores</CardTitle>
         </CardHeader>
@@ -59,7 +59,7 @@ export function TarjetaControles({ addToken }: TarjetaControlesProps) {
         </CardContent>
       </Card>
 
-      <Card> {/*tarjeta para parentesis */}
+      <Card>
         <CardHeader className="pb-3">
           <CardTitle className="text-lg">Paréntesis</CardTitle>
         </CardHeader>

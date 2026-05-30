@@ -5,13 +5,13 @@ export type Token = {
 };
 
 export const operators = [
-  { symbol: "¬", name: "NOT", display: "¬", description: "Negación" },
-  { symbol: "∧", name: "AND", display: "∧", description: "Conjunción" },
-  { symbol: "∨", name: "OR", display: "∨", description: "Disyunción" },
-  { symbol: "→", name: "IMPLIES", display: "→", description: "Implicación" },
+  { symbol: "¬", name: "NO", display: "¬", description: "Negación" },
+  { symbol: "∧", name: "Y", display: "∧", description: "Conjunción" },
+  { symbol: "∨", name: "O", display: "∨", description: "Disyunción" },
+  { symbol: "→", name: "IMPLICA", display: "→", description: "Implicación" },
   {
     symbol: "↔",
-    name: "BICONDITIONAL",
+    name: "SI Y SOLO SI",
     display: "↔",
     description: "Bicondicional",
   }
@@ -49,7 +49,6 @@ export const evaluateExpression = (
     "¬": 5,
     "∧": 4,
     "∨": 3,
-    "⊕": 3,
     "→": 2,
     "↔": 1,
   };
@@ -58,7 +57,6 @@ export const evaluateExpression = (
     "¬": true,
     "∧": false,
     "∨": false,
-    "⊕": false,
     "→": true,
     "↔": false,
   };
@@ -135,12 +133,6 @@ export const evaluateExpression = (
           const b = evalStack.pop()!;
           const a = evalStack.pop()!;
           evalStack.push(a === b);
-          break;
-        }
-        case "⊕": {
-          const b = evalStack.pop()!;
-          const a = evalStack.pop()!;
-          evalStack.push(a !== b);
           break;
         }
       }

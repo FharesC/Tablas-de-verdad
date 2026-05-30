@@ -1,14 +1,14 @@
 "use client";
 
 import { Calculator } from "lucide-react";
-import { useTruthTable } from "./useTruthTable";
+import { useTablaVerdad } from "./useTablaVerdad";
 import { TarjetaFormula } from "./components/TarjetaFormula";
 import { TarjetaControles } from "./components/TarjetaControles";
 import { TablaResultados } from "./components/TablaResultados";
 import { TarjetaEjemplos } from "./components/TarjetaEjemplos";
 
 export default function TruthTableGenerator() {
-  const tableState = useTruthTable();
+  const tableState = useTablaVerdad();
 
   return (
     <div className="min-h-screen bg-background p-4 md:p-8">

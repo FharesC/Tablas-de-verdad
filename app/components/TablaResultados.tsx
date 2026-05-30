@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Token } from "../truthTableLogic";
+import { Token } from "../logicaTablaVerdad";
 
 interface TablaResultadosProps {
   tokens: Token[];
