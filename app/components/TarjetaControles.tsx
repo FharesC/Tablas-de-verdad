@@ -9,7 +9,7 @@ interface TarjetaControlesProps {
 export function TarjetaControles({ addToken }: TarjetaControlesProps) {
   return (
     <div className="grid gap-4 md:grid-cols-3">
-      <Card>
+       <Card> {/*tarjeta para variables */}
         <CardHeader className="pb-3">
           <CardTitle className="text-lg">Variables</CardTitle>
         </CardHeader>
@@ -30,7 +30,7 @@ export function TarjetaControles({ addToken }: TarjetaControlesProps) {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card> {/*tarjeta para operadores */}
         <CardHeader className="pb-3">
           <CardTitle className="text-lg">Operadores</CardTitle>
         </CardHeader>
@@ -52,15 +52,14 @@ export function TarjetaControles({ addToken }: TarjetaControlesProps) {
           <div className="mt-3 text-xs text-muted-foreground space-y-1">
             {operators.map((op) => (
               <div key={op.symbol}>
-                <span className="font-mono">{op.display}</span> ={" "}
-                {op.description}
+                <span className="font-mono">{op.display}</span> = {op.description}
               </div>
             ))}
           </div>
         </CardContent>
       </Card>
 
-      <Card>
+      <Card> {/*tarjeta para parentesis */}
         <CardHeader className="pb-3">
           <CardTitle className="text-lg">Paréntesis</CardTitle>
         </CardHeader>

@@ -14,13 +14,7 @@ export const operators = [
     name: "BICONDITIONAL",
     display: "↔",
     description: "Bicondicional",
-  },
-  {
-    symbol: "⊕",
-    name: "XOR",
-    display: "⊕",
-    description: "Disyunción exclusiva",
-  },
+  }
 ];
 
 export const variables = ["p", "q", "r", "s", "t"];
